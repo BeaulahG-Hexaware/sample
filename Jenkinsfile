@@ -16,7 +16,7 @@ pipeline {
              //steps{
                //  sh 'trivy image --scanners none --image-config-scanners config voting-app '
 
-            }
+            //}
         }
   }
 
