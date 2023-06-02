@@ -1,11 +1,11 @@
 pipeline {
   agent any
   stages {
-        stage('Build') {
-            steps {
-                git 'https://github.com/BeaulahG-Hexaware/sample.git'
-            }
-            }
+        //stage('Build') {
+            //steps {
+              //  git 'https://github.com/BeaulahG-Hexaware/sample.git'
+            //}
+            //}
         stage('Trivy'){
              steps{
                  sh 'trivy image voting-app -f json -o trivyreport.json '
