@@ -7,12 +7,14 @@ pipeline {
             }
         stage('Trivy'){
              steps{
-                 sh 'trivy image nginx -f json -o trivyreport.json '
+                 sh 'trivy image voting-app -f json -o trivyreport.json '
              }
              steps{
-                 sh 'trivy image --scanners none --image-config-scanners secret nginx '
+                 sh 'trivy image --scanners none --image-config-scanners secret voting-app '
              }
              steps{
-                 sh 'trivy image --scanners none --image-config-scanners config alpine:3.17.0 '
+                 sh 'trivy image --scanners none --image-config-scanners config voting-app '
 
          }
+        }
+       }
