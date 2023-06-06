@@ -14,10 +14,12 @@ pipeline {
                   sh 'trivy image --image-config-scanners config voting-app -f json -o trivyconfig.json '
                }
               steps{
-                 sh 'trivy image --scanners none --image-config-scanners config voting-app '
+                 sh ' trivy image --scanners none --image-config-scanners config voting-app -f json -o trivysecret.json'
+              }
+               steps{
+                 sh ' trivy fs --scanners vuln,secret,config example-voting-app -f json -o trivyfs.json '
 
             }
         }
   }
-
 }
