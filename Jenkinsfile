@@ -11,7 +11,7 @@ pipeline {
                  sh 'trivy image voting-app -f json -o trivyreport.json '
                  sh 'trivy image --image-config-scanners config voting-app -f json -o trivyconfig.json '
                  sh ' trivy image --scanners none --image-config-scanners config voting-app -f json -o trivysecret.json '
-                 //sh ' trivy fs --scanners vuln,secret,config example-voting-app -f json -o trivyfs.json '
+                 sh ' trivy fs --scanners vuln,secret,config /home/kali/example-voting-app/ -f json -o trivyfs.json '
 
             }
         }
